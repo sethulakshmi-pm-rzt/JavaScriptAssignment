@@ -1,0 +1,14 @@
+const integerArray = [11, 22, 33, 44, 55];
+const stringArray1 = ["Google", "Facebook", "Instagram", "Feedly", "Watsapp"];
+const stringArray2 = ["Search", "Social", "Social", "News", "Messenger / Social"];
+
+var result = integerArray.map( (id, i) => (
+  {
+    id : id,
+    platform : stringArray1[i],
+    tag : (stringArray2[i].split("/")).map(i=>i.trim())
+	}
+)
+);
+
+console.log(result);

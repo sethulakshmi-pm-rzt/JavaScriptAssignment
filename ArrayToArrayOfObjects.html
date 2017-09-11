@@ -1,0 +1,15 @@
+var collection = [
+    ["fruits","frozen","fresh","rotten"],
+    ["apples",884,494,494],
+    ["oranges",4848,494,4949],
+    ["kiwi",848,33,33]
+];
+
+var keys = collection.shift();
+collection = collection.map(function (row) {
+    return keys.reduce(function (obj, key, i) {
+      obj[key] = row[i];
+      return obj;
+    }, {});
+});
+console.log(collection);

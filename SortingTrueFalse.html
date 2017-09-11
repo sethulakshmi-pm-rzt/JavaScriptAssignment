@@ -1,0 +1,42 @@
+const list = [ 
+  { title: "Z", checked: false },
+  { title: "B", checked: true },
+  { title: "C", checked: false },
+  { title: "X", checked: true },
+  { title: "A", checked: false },
+  { title: "F", checked: true }
+];
+//FIRST METHOD - USES 4 LOOPS
+//const trueList = list.filter( (element) => element.checked === true);
+//const s = trueList.sort( (a, b) => a.title > b.title);
+//const falselist = list.filter( (element) => element.checked === false);
+//const z = falselist.sort( (a, b) => a.title > b.title);
+//console.log(s.concat(z));
+
+//2ND METHOD - USES 3 LOOPS
+//const s = list.sort(( item1, item2) => item1.title > item2.title);
+//console.log((s.filter((element) => element.checked === true)).concat(s.filter((element) => element.checked === false)));
+
+//const s = list.sort(( item1, item2) => (item1.title > item2.title)));
+//console.log(s);
+
+
+//3RD METHOD - ONE LOOP - LOCALECOMPARE
+//console.log(list.sort((a, b) => b.checked.toString().localeCompare(a.checked.toString()) || a.title.localeCompare(b.title)))
+
+const compareString = list.map((b) => b.title);
+//const z = list.sort((q, w) => compareString(q, w));
+console.log(compareString);
+ 
+
+
+
+
+
+
+
+
+
+
+
+
