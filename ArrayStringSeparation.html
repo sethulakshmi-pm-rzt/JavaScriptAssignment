@@ -1,0 +1,25 @@
+const ip = ["vinoj, arjun", "dixy", "amala"];
+// op: ["vinoj", "arjun", "dixy", "amala"];	
+
+var newArray = [];
+
+for(var i = 0; i < ip.length;  i++) {
+	let nArray = ip[i].split(",").map(i => i.trim());
+  newArray.push(...nArray);
+}
+console.log("Using For loop : ",newArray)
+
+ip.map((item, i) => {
+	return item.split(",").map(i => i.trim());
+});
+
+console.log("Single code output : [Array of array] ",newArray, Array.prototype.concat.apply(ip.map(i => i.split(','))));
+
+
+console.log('using reduce', ip.reduce((a, i)=>{
+  return [...a, ...i.split(',')];
+},[]))
+
+console.log("nested array", ip.map((item, i) => {
+	return item.split(",").map(i => i.trim());
+}))

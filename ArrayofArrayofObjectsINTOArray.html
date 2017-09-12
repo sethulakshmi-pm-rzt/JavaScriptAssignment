@@ -1,0 +1,37 @@
+const r = [1, 2, 33];
+console.log("Map",r.map((item, i) => {
+  return item = item + i;
+}));
+
+console.log("Reduce",r.reduce((acc, i) => {
+  return acc = acc + i;
+}))
+
+const ip = [ [{name: "vinoj"}, {name: "dixy"}], {name: "amala"}, {name: "arjun"}];
+//    op: [ {name: "vinoj"}, {name: "dixy"}, {name: "amala"}, {name: "arjun"}]
+
+
+let forArray = []
+for(var i = 0; i < ip.length; i++)
+{
+  Array.isArray(ip[i]) ? ip.map((i) => forArray.push(...i)) : forArray.push(ip[i])
+}
+console.log("Using For loop : ",forArray);
+
+//let reduceArray = [];
+//console.log("Using reducezz : ",ip.reduce((reduceArray, i) => {
+//  (Array.isArray(i)) ?  ip.map((i) => reduceArray.push(i)) : reduceArray.push(i);
+//  return reduceArray;
+//}));
+
+let reduceArray = [];
+console.log("Using reducezz : ",ip.reduce((reduceArray, i) => {
+  (Array.isArray(i)) ?  ip.map((i) => reduceArray.concat(i)) : reduceArray.push(i);
+  return reduceArray;
+}));
+
+
+
+
+
+
