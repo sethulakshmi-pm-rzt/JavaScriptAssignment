@@ -1,20 +1,18 @@
 const list = [1, 2, 3, 4];
 const sum = (a, b) => a + b;
-const sub =  (a, b) => a - b;
+const sub = (a, b) => a - b;
 const avg = (listItems) => listItems.reduce(sum, 0) / listItems.length;
 const mean = avg(list);
+const power = (a, b) => Math.abs(sub(a, b));
 
 console.log("MEAN", mean);
 
 const variance = (listItems) => {
-	const _sum = listItems.reduce((acc, i) => {
-		const absval = Math.abs(sub(i, mean));
-		return acc + Math.pow(absval, 2);
+	const s = listItems.reduce((acc, currentValue) => {
+		return sum(acc, Math.pow(power(currentValue, mean), 2));
 	}, 0)
-	return Math.sqrt(_sum / listItems.length);
+	return Math.sqrt(s / listItems.length);
 }
 
-const _variance = variance(list);
-console.log("VARIANCE", _variance);
-
-
+const v = variance(list);
+console.log("VARIANCE", v);

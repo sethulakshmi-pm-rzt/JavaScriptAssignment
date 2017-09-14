@@ -5,30 +5,29 @@ const people =
       { name: 'Nanha', empId: 3, age: 22, orgId: 1 },
       { name: 'Nandu', empId: 4, age: 53, orgId: 3 }  
     ]
-
 const organizations = 
     [
       { name: 'Razorthink', id: 1, employees: [0, 3] }, 
       { name: 'Apple', id: 2, employees: [1] }, 
       { name: 'Microsoft', id: 3, employees: [4] }
     ]
+//const peopleFunction = (empid) => people.filter((element) => element.empId == empid );
+//const orgFunction = (orgid) => organizations.filter((item) => item.id == orgid );
+const peopleFunction = (empid) => people.reduce((acc, currentValue) => currentValue.empId == empid ? currentValue : acc,people[0]);
+const orgFunction = (orgid) => organizations.reduce((acc, currentValue) => currentValue.id == orgid ? currentValue : acc,{});
 
-
-const peopleFunction = (empid) => people.filter((element) => element.empId == empid );
-const orgFunction = (orgid) => organizations.filter((item) => item.id == orgid );
-
-let arr = (peopleFunction(4))[0];
-let arr1 = (orgFunction(arr.orgId))[0];
+const employee = (peopleFunction(9));
+const org = (orgFunction(employee.orgId));
 
 const newObject = {
-  name : arr.name,
-  empId : arr.empId,
-  age : arr.age,
-  orgId : arr.orgId,
-  OrgName : arr1.name
+  name : employee.name,
+  empId : employee.empId,
+  age : employee.age,
+  orgId : employee.orgId,
+  orgName : org.name
 }
 
-console.log("arr ", arr);
-console.log("orgFunction ",arr1);
+console.log("Employee ", employee);
+console.log("orgFunction ",org);
 console.log("newObject ",newObject);
 
