@@ -1,0 +1,32 @@
+const ip = [ 
+  { title: "A", checked: false },
+  { title: "B", checked: true },
+  { title: "C", checked: false },
+  { title: "D", checked: true },
+  { title: "E", checked: false },
+  { title: "F", checked: true } 
+];
+
+
+console.log("Filter ",ip.filter((item) => {
+  return item.checked == true;
+}))
+
+console.log("Reduce : ", ip.reduce((acc, i) => {
+  if(i.checked)
+    acc.push(i);
+  return(acc);
+}, []));
+
+//checking arrayOfObjects - MAP
+const qq = [
+  {key: 1, value: 10},
+  {key: 2, value: 20},
+  {key: 3, value: 30}
+];
+
+console.log("QQ ", qq.map((el) => {
+  var arr = {};
+  arr[el.key] = el.value;
+  return arr;
+}));
