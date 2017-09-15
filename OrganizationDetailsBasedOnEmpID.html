@@ -1,0 +1,42 @@
+const people = 
+    [
+      {name: 'Sandeep', empId: 0, age: 23, orgId: 1}, 
+      {name: 'Arjun', empId: 1, age: 25, orgId: 2}, 
+      {name: 'Nanha', empId: 3, age: 22, orgId: 1},
+      {name: 'Nandu', empId: 4, age: 53, orgId: 3}  
+    ]
+const organizations = 
+    [
+      {name: 'Razorthink', id: 1, employees: [0, 3]}, 
+      {name: 'Apple', id: 2, employees: [1]}, 
+      {name: 'Microsoft', id: 3, employees: [4]}
+    ]
+const peopleFunction = (empid) => people.find((element) => element.empId == empid);
+const orgFunction = (orgid) => organizations.find((item) => item.id == orgid);
+//const peopleFunction = (empid) => people.find((element) => element.empId == empid);
+//const orgFunction = (orgid) => organizations.find((item) => item.id == orgid);
+
+//we can use filter instead of find: it will return one array of object, then takes the first item from that array - [0] at employee and org.
+//const peopleFunction = (empid) => 
+//people.reduce((acc, currentValue) => currentValue.empId == empid ? currentValue : acc, {});
+
+//const orgFunction = (orgid) => 
+//organizations.reduce((acc, currentValue) => currentValue.id == orgid ? currentValue : acc, {});
+
+const employee = (peopleFunction(1));
+const org = (orgFunction(employee.orgId));
+
+const newObject = Object.assign({}, employee, {organizationName: org.name});
+
+//const newObject = {
+//  name : employee.name,
+//  empId : employee.empId,
+//  age : employee.age,
+//  orgId : employee.orgId,
+//  orgName : org.name
+//}
+
+//console.log("Employee ", employee);
+//console.log("orgFunction ",org);
+console.log("newObject ",newObject);
+
