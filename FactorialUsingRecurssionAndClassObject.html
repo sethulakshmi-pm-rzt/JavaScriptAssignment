@@ -1,0 +1,12 @@
+class factClass {
+  constructor(n) {
+    this.n = n; //this.n contains 4
+  }
+  factHelper = (num) => num < 2 ? 1 : this.factHelper(num-1) * num
+  fact(){
+    return this.factHelper(this.n);
+  }
+}
+const newObj = new factClass(4);
+console.log(newObj.fact());
+

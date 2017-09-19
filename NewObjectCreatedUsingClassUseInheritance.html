@@ -1,0 +1,47 @@
+//When a new object is created using class person it has to add ancestors and ages property to the object
+//Example : when var sandeep = new Person('sandeep', peopleTree, ages) object is created,
+//sandeep.ancestors should give ['sandeep', 'shashi', 'vinoj'] and sandeep.ages should give [23, 20, 26])
+const peopleTree = 
+      {
+        "sandeep": "shashi", "nanha": "shashi", "harish": "nanha", "divya": "harish",
+        "arjun": "sandeep", "shashi": "vinoj", "vishal": "divya"
+      }
+const ages = 
+      {
+        'sandeep': 23, 'shashi': 20, 'nanha': 22, 'harish': 24, 'divya': 30,
+        'arjun': 25, 'vinoj': 26, 'vishal': 5
+      }
+let personArray = [];
+let ageArray = [];
+class person {
+  constructor(name, peopleTree, ages) {
+    this.name = name;
+    this.peopleTree = peopleTree;
+    this.ages = ages; 
+  }
+  ancestorsFind(key) {
+    if(!peopleTree[key]){
+      personArray.push(key);
+      ageArray.push(ages[key])
+      
+    	return personArray;
+    }
+    else{
+      personArray.push(key);
+      ageArray.push(ages[key])
+      const val = peopleTree[key];
+      this.ancestorsFind(val);
+      return personArray;
+    }
+  }
+  ancestors() {
+    return this.ancestorsFind(newObj.name);
+  }
+  age() {
+    return ageArray
+  }
+}
+const newObj = new person("sandeep", peopleTree, ages);
+
+console.log(newObj.ancestors());
+console.log(newObj.age());
