@@ -1,11 +1,19 @@
-//Given an array of objects, validate the array such that each object property inputs which is an array contains at least one value.
+//display the same list but remove null, undefined, and emptry string of inputs and outputs from this array.
 
 const list = 
     [
-      { "id": 1, "status": 1, "inputs": [ "asd", "" ], "outputs": [ "" ] },
-      { "id": "", "status": 1, "inputs": [ "test", "" ], "outputs": [ "" ] },
-      { "id": "", "status": 1, "inputs": [ "", "test1" ], "outputs": [ "" ] },
-      { "id": "", "status": 1, "inputs": [ "gfg", "" ], "outputs": [ "" ] }
+      { "id": "1", "status": 1, "inputs": [ "", "asd" ], "outputs": [ "ab" ] },
+      { "id": "", "status": 1, "inputs": [ "test", "", null ], "outputs": [ "" ] },
+      { "id": "", "status": 1, "inputs": [ "aaa", "test1" ], "outputs": [ "ttt", "sss" ] },
+      { "id": "", "status": 1, "inputs": [ "gfg", "sss", "bcb" ], "outputs": [ undefined ] }
     ]
-console.log(list.filter((item) => item.id == ""));
+const value = list.map((element) => {
+  const newArr = (arr) => arr.filter(Boolean);
+  
+  element.inputs = newArr(element.inputs);
+  element.outputs = newArr(element.outputs);
+  return element;
+});
+console.log("Value : ",value);
+
 

@@ -1,0 +1,26 @@
+//Given an array of objects, validate the array such that each object property
+// inputs which is an array contains at least one value.
+
+const list = 
+    [
+      { "id": "", "status": 1, "inputs": [ "", "asd" ], "outputs": [ "ab" ] },
+      { "id": "2", "status": 1, "inputs": [ "test", "", null ], "outputs": [ "" ] },
+      { "id": "3", "status": 1, "inputs": [ "aaa", "test1"], "outputs": [ "ttt", "sss" ] },
+      { "id": "4", "status": 1, "inputs": [ "gfg", "sss", "bcb" ], "outputs": [ undefined ] }
+    ]
+//console.log(list.filter((item) => item.id == ""));
+
+const value = list.filter((element) => {
+  let inputVal = element.inputs;
+  let outputVal = element.outputs;
+
+  let arrFun = ((arr) => arr.every((item) => !!item));
+  //let isValid = inputVal.every((item) => !!item);
+  //let isValid = arrFun(inputVal);
+  //let isVal = arrFun(outputVal);
+  //let isVal = outputVal.every((el) => !!el);
+  
+    return (arrFun(inputVal) && arrFun(outputVal));
+});
+
+console.log("Value : ",value);
