@@ -1,0 +1,39 @@
+const data = [  
+        { Date: "2/10/2013", Set: 0, Value: 1 },   
+        { Date: "2/10/2013", Set: 1, Value: 11 },
+        { Date: "2/11/2013", Set: 1, Value: 8 },   
+        { Date: "2/12/2013", Set: 0, Value: 12 },
+          { Date: "2/10/2013", Set: 1, Value: 10 },
+        { Date: "2/12/2013", Set: 1, Value: 11 },    
+        { Date: "2/13/2013", Set: 0, Value: 15 },  
+        { Date: "2/11/2013", Set: 0, Value: 15 },  
+        { Date: "2/13/2013", Set: 1, Value: 19 },   
+        { Date: "2/14/2013", Set: 0, Value: 10 },    
+        { Date: "2/14/2013", Set: 1, Value: 20 }   
+    ];
+//(function() {
+    var endData = {};
+
+    for (var i = 0; i < data.length; ++i) {
+        var date = data[i].Date;
+
+        if (endData[date] === undefined)
+            endData[date] = [];
+
+        endData[date].push(data[i].Value);
+    }
+
+    var finalData = [];
+
+    for (var ed in endData) {
+        var a = [ed];
+
+        for (var i = 0; i < endData[ed].length; ++i) {
+            a.push(endData[ed][i]);
+        }
+
+        finalData.push(a);
+    }
+
+    console.log(finalData);
+//})();

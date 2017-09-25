@@ -1,0 +1,16 @@
+//Given array displayed in table, with the counter values.
+const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+const transportation = data.reduce((counters, item) => {
+  if (!counters[item]) counters[item] = 0;
+  counters[item]++;
+  console.log("Counter", counters)
+  return counters;
+}, {});
+let trans = [];
+trans.push(transportation)
+console.log('transportation table');
+console.table(trans);
+
+console.log('transportation log');
+console.log(transportation);

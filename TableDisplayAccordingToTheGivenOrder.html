@@ -1,0 +1,66 @@
+const tableArr = {
+  'columns': ['id', 'column1', 'column2', 'column3'],
+  'order': [1, 3, 2, 4, 7, 5, 6],
+  'data': [
+    { 'id': 1, 'column': 'column1', 'value': 'apple'},
+		{ 'id': 3, 'column': 'column3', 'value': 'iOs'},
+		{ 'id': 2, 'column': 'column1', 'value': 'apple inc'},
+		{ 'id': 2, 'column': 'column2', 'value': 'NextGen'},
+		{ 'id': 4, 'column': 'column1', 'value': 'MS'},
+		{ 'id': 4, 'column': 'column2', 'value': 'Office'},
+		{ 'id': 7, 'column': 'column2', 'value': 'Server'},
+		{ 'id': 5, 'column': 'column3', 'value': '2016'},
+		{ 'id': 5, 'column': 'column2', 'value': null},
+		{ 'id': 6, 'column': 'column3', 'value': 'Android'},
+		{ 'id': 6, 'column': 'column2', 'value': 'OS'},
+		{ 'id': 6, 'column': 'column1', 'value': 'Google'},
+		{ 'id': 4, 'column': 'column3', 'value': ''}
+	]
+};
+console.log(tableArr.columns);
+
+const dataFunction = (arr) => {
+  let n = arr;
+  for(var l = 0; l < n.length; l++) {
+    if(n[l].column === tableArr.columns[1])
+      return n[l].value;
+  }
+  return "\t";
+};
+const data = (ar) => {
+  let n = ar;
+  for(var l = 0; l < n.length; l++) {
+    if(n[l].column === tableArr.columns[2]) {
+      return n[l].value;
+    }
+  }
+  return "\t";
+};
+const da = (a) => {
+  let n = a;
+  for(var l = 0; l < n.length; l++) {
+    if(n[l].column === tableArr.columns[3])
+      return n[l].value;
+  }
+  return "\t";
+};
+
+for(var i = 0; i < tableArr.order.length; i++) {
+  let orderValue = tableArr.order[i];
+  let dataVal = tableArr.data.filter((item) => item.id === orderValue);
+  let a = dataFunction(dataVal);
+  let b = data(dataVal);
+  let c = da(dataVal);
+  console.log("\t", orderValue, "\t", a, "\t", b, "\t", c);
+}
+
+
+
+
+
+
+
+
+
+
+

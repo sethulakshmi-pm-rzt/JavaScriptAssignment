@@ -1,0 +1,35 @@
+const data = [
+    { 'id': 1, 'column': 'column1', 'value': 'apple'},
+		{ 'id': 3, 'column': 'column3', 'value': 'iOs'},
+		{ 'id': 2, 'column': 'column1', 'value': 'apple inc'},
+		{ 'id': 2, 'column': 'column2', 'value': 'NextGen'},
+		{ 'id': 4, 'column': 'column1', 'value': 'MS'},
+		{ 'id': 4, 'column': 'column2', 'value': 'Office'},
+		{ 'id': 7, 'column': 'column2', 'value': 'Server'},
+		{ 'id': 5, 'column': 'column3', 'value': '2016'},
+		{ 'id': 5, 'column': 'column2', 'value': null},
+		{ 'id': 9, 'column': 'column3', 'value': 'Android'},
+		{ 'id': 9, 'column': 'column2', 'value': 'OS'},
+		{ 'id': 9, 'column': 'column1', 'value': 'Google'},
+		{ 'id': 4, 'column': 'column3', 'value': ''}
+	];
+let objData = {};
+let arr = [];
+data.forEach(function(item) {
+  let id = item.id;
+ 	let column = item.column;
+  if(objData[id] === undefined)
+		objData[id] = [id];
+  //objData[id].push(item.id);
+  objData[id].push(item.value);
+});
+console.log(objData);
+
+//console.log(finalData);
+
+
+
+
+
+
+
