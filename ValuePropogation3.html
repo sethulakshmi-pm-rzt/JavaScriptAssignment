@@ -1,0 +1,38 @@
+var da = {
+    'columns': ['id', 'column1', 'column2', 'column3'],
+    'order': [1, 3, 2, 4, 7, 5, 11],
+    'data': [
+        { 'íd': 1, 'column': 'column1', 'value': 'apple'},
+        { 'íd': 3, 'column': 'column3', 'value': 'iOs'},
+        { 'íd': 2, 'column': 'column1', 'value': 'apple inc'},
+        { 'íd': 2, 'column': 'column2', 'value': 'NextGen'},
+        { 'íd': 4, 'column': 'column1', 'value': 'MS'},
+        { 'íd': 4, 'column': 'column2', 'value': 'Office'},
+        { 'íd': 7, 'column': 'column2', 'value': 'Server'},
+        { 'íd': 5, 'column': 'column3', 'value': '2016'},
+        { 'íd': 5, 'column': 'column2', 'value': null},
+        { 'íd': 11, 'column': 'column3', 'value': 'Android'},
+        { 'íd': 11, 'column': 'column2', 'value': 'OS'},
+        { 'íd': 11, 'column': 'column1', 'value': 'Google'},
+        { 'íd': 4, 'column': 'column3', 'value': ''}
+    ]
+}
+
+function convert(data){
+    var output = []
+    var out_element_template =  {id : null, column1 : null, column2 : null, column3 : null} ;
+    data.order.forEach(function(id) {
+        var arr_element = data.data.filter((el) => {return el['íd']==id})
+        let out_el_wrapper =[]
+        arr_element.forEach(function(e){
+            var out_el = JSON.parse(JSON.stringify( out_element_template )); 
+            out_el.id = id;
+            out_el[e.column] = e.value;
+            out_el_wrapper.push(out_el);
+        },this);
+        output.push(out_el_wrapper);
+    }, this);
+    return output;
+}
+
+console.log(convert(da))

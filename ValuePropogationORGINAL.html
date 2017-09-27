@@ -1,5 +1,5 @@
 const tableArr = {
-  'columns': ['id', 'column1', 'column2', 'column3'],
+  'columns': ['id','column3', 'column2',  'column1'],
   'order': [1, 3, 2, 4, 7, 5, 11],
   'data': [
     { 'id': 1, 'column': 'column1', 'value': 'apple'},
@@ -17,26 +17,24 @@ const tableArr = {
     { 'id': 4, 'column': 'column3', 'value': ''}
   ]
 };
-//const dataDetails = (el) => tableArr.data.filter((dataId) => 	dataId.id === el);
-//const resultTemp = {id: null, column1: null, column2: null, column3: null};	
-//console.log(resultTemp);
-let outArr = [];
+function valuesToArray(obj) {
+  let column = tableArr.columns
+  return column.map(function(key) { return obj[key]; });
+}
+
 function convertFunction(table){
   const dataDetails = (el) => table.data.filter((dataId) => dataId.id === el);
-  const mapDetails = table.order.map((it) => {
-    //console.log("rr",outArr)
-    return dataDetails(it).forEach((item) => {
-      let resultTemp = {id: null, column1: null, column2: null, column3: null};	
-      let arr = [];
-      //console.log("ee",item.id, item.column, item.value)//, resultTemp[item.column])
-      resultTemp.id = item.id;
+  let resultTemp = {id: null, column1: null, column2: null, column3: null}; 
+  
+  const mapDetails = table.order.map((id) => {
+    resultTemp.id = id;
+    dataDetails(id).forEach((item) => {
       resultTemp[item.column] = item.value;
-      arr.push(resultTemp)
-      outArr.push(arr)
     })
-    
+    //console.log("EE",resultTemp)
+   return valuesToArray(resultTemp);
   })
-	return outArr;
+  return mapDetails;
 }
 console.log(convertFunction(tableArr));
 

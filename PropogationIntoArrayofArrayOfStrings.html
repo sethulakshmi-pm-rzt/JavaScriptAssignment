@@ -17,27 +17,31 @@ const tableArr = {
     { 'id': 4, 'column': 'column3', 'value': ''}
   ]
 };
-//const dataDetails = (el) => tableArr.data.filter((dataId) => 	dataId.id === el);
-//const resultTemp = {id: null, column1: null, column2: null, column3: null};	
-//console.log(resultTemp);
+function valuesToArray(obj) {
+  return Object.keys(obj).map(function (key) { return obj[key]; });
+}
+
 let outArr = [];
 function convertFunction(table){
   const dataDetails = (el) => table.data.filter((dataId) => dataId.id === el);
   const mapDetails = table.order.map((it) => {
-    //console.log("rr",outArr)
-    return dataDetails(it).forEach((item) => {
-      let resultTemp = {id: null, column1: null, column2: null, column3: null};	
-      let arr = [];
-      //console.log("ee",item.id, item.column, item.value)//, resultTemp[item.column])
-      resultTemp.id = item.id;
-      resultTemp[item.column] = item.value;
-      arr.push(resultTemp)
-      outArr.push(arr)
-    })
     
+    let arr = [];
+    let resultTemp = {id: null, column1: null, column2: null, column3: null};	
+    resultTemp.id = it;
+    
+    arr.push(resultTemp);
+    outArr.push(arr);
+   	dataDetails(it).forEach((item) => {
+      //console.log("temmmm",item)
+      resultTemp[item.column] = item.value;
+    })
+   return valuesToArray(resultTemp)
   })
-	return outArr;
+	return mapDetails;
 }
+
+
 console.log(convertFunction(tableArr));
 
 

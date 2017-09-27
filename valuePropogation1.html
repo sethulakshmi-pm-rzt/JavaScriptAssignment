@@ -1,0 +1,54 @@
+const tableArr = {
+  'columns': ['id', 'column1', 'column2', 'column3'],
+  'order': [1, 3, 2, 4, 7, 5, 9],
+  'data': [
+    { 'id': 1, 'column': 'column1', 'value': 'apple'},
+		{ 'id': 3, 'column': 'column3', 'value': 'iOs'},
+		{ 'id': 2, 'column': 'column1', 'value': 'apple inc'},
+		{ 'id': 2, 'column': 'column2', 'value': 'NextGen'},
+		{ 'id': 4, 'column': 'column1', 'value': 'MS'},
+		{ 'id': 4, 'column': 'column2', 'value': 'Office'},
+		{ 'id': 7, 'column': 'column2', 'value': 'Server'},
+		{ 'id': 5, 'column': 'column3', 'value': '2016'},
+		{ 'id': 5, 'column': 'column2', 'value': null},
+		{ 'id': 9, 'column': 'column3', 'value': 'Android'},
+		{ 'id': 9, 'column': 'column2', 'value': 'OS'},
+		{ 'id': 9, 'column': 'column1', 'value': 'Google'},
+		{ 'id': 4, 'column': 'column3', 'value': ''}
+	]
+};
+let output = "";
+let obj = {};
+let arr = [];
+
+for(var i = 0; i < tableArr.columns.length; i++){
+  output += tableArr.columns[i] + "\t\t\t"
+}
+output = output + "\n------------------------------------------------------\n"
+//console.log(output);
+
+for(var j = 0; j < tableArr.order.length; j++){
+  
+  let orderId = tableArr.order[j];
+  let filterData = tableArr.data.filter((item) => item.id === orderId);
+  
+  for(var k = 0; k < filterData.length; k++){
+  	//console.log(filterData[k].id,filterData[k].column, filterData[k].value)
+  	let indexVal = tableArr.columns.findIndex((it) => it === filterData[k].column);
+    //console.log("indexx",indexVal)
+    output = output + filterData[k].id;
+    if(indexVal === 1){
+      output = output + "\t\t" + filterData[k].value + "\n";
+    }
+    
+    console.log(output)
+    output = "";
+  }
+//	console.log(filterData);
+}
+
+
+
+
+
+
