@@ -1,0 +1,40 @@
+function memoize(func, depsFunc) {
+  var cache = {};
+  return function() {
+    var key = JSON.stringify([depsFunc(), arguments]);
+    if(cache[key]) {
+      console.log("Fetching")
+      return cache[key];
+    }
+    else {
+      console.log("Finding data")
+      var val = func.apply(this, arguments);
+      cache[key] = val;
+      return val;
+    }
+  };
+}
+
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+
+  this.fullName = memoize(function(title) {
+      return title + ' ' + this.firstName + ' ' + this.lastName;
+    },
+    function() {
+      return [this.firstName, this.lastName];
+    }.bind(this));
+}
+
+var person = new Person('Jonathan', 'Lehman');
+
+console.log(person.fullName('Mr.'));
+
+console.log(person.fullName('Mr.'));
+
+console.log(person.fullName('Mister'));
+
+person.firstName = 'Jon';
+
+console.log(person.fullName('Mr.'));

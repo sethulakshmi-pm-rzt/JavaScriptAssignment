@@ -1,0 +1,25 @@
+let cache = {};
+
+function reminisce(obj) {
+    var requiredKeys = ['name', 'id', 'address', 'phone', 'employeeId'];
+    for (var property in obj) {
+        if (obj.hasOwnProperty(property) && requiredKeys.indexOf(property) > -1) {
+          cache[property] = obj[property];
+          console.log("current cache value : ",cache[property])
+          console.log("cache : ",cache)
+        }
+    }
+    for(var i = 0; i < requiredKeys.length; i++) {
+        if (!cache.hasOwnProperty(requiredKeys[i])) {
+          console.log("Reqr keys : ",requiredKeys[i])
+          return undefined
+        }
+    }
+    return cache;
+}
+
+console.log(reminisce({ name: 'Vinoj' }))   
+console.log(reminisce({ id: '64' }))     
+console.log(reminisce({ address: 'address' })) 
+console.log(reminisce({ phone: '9009891232' }))
+console.log(reminisce({ employeeId: '1' })) 

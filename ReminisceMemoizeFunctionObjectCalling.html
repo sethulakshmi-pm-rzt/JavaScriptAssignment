@@ -1,0 +1,19 @@
+let cache = {};
+let reminisce = ((args) => {
+  let flagValue;
+  const format = ['name', 'id', 'address', 'phone', 'employeeId'];
+  for(let property in args){
+    cache[property] = args[property];
+  }
+  format.forEach((items) => {
+    if(!cache.hasOwnProperty(items)){
+      flagValue = true;
+    }
+  })
+  return flagValue ? undefined : cache;
+});
+console.log(reminisce({'name': "manu"}));
+console.log(reminisce({'id': "1111"}));
+console.log(reminisce({'address': "manu nivas"}));
+console.log(reminisce({'phone': "9876543210"}));
+console.log(reminisce({'employeeId': "101"}));
