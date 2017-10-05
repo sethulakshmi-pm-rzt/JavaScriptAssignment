@@ -1,24 +1,27 @@
 const memoize = (fn) => {
   let cache = {};
+  console.log("cacheNEW : ",cache)
   return (...args ) => {
     let n = args[0];
-    //console.log("n",n, "cache : ",cache, "args : ",...args)
+    console.log("n : ", n, "cache : ", cache, "args : ", ...args)
     if (n in cache) {
-      console.log('Fetching from cache', n);
+      console.log('Fetching from cache : ', n, "cache[n] : ", cache[n]);
       return cache[n];
     }
     else {
-      console.log('Calculating result', n);
+      console.log('Calculating result : ', n);
       let result = fn(n);
+      console.log("result : ", result)
       cache[n] = result;
+      console.log("cache[n] : ", cache[n])
       return result;
     }
   }
 }
 const factorial = memoize((x) => {
-    //console.log("x",x)
+    console.log("x : ", x)
     return (x < 2) ? 1 : x * factorial(x - 1);
   }
 );
-console.log(factorial(5)); // calculated
-console.log(factorial(6)); // calculated for 6 and cached for 5
+console.log("zzzzzzzzzzzz",factorial(5));
+console.log("zzzzzzzzzzzz",factorial(6)); 

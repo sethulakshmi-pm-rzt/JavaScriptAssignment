@@ -1,10 +1,12 @@
 let cache = {};
-let reminisce = ((args) => {
-  let flagValue;
-  const format = ['name', 'id', 'address', 'phone', 'employeeId'];
+let reminisce = ((args) => {  
   for(let property in args){
+    console.log("property : ",property, cache[property], args[property])
     cache[property] = args[property];
   }
+
+  let flagValue;
+  const format = ['name', 'id', 'address', 'phone', 'employeeId'];
   format.forEach((items) => {
     if(!cache.hasOwnProperty(items)){
       flagValue = true;

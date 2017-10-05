@@ -1,0 +1,30 @@
+const template = ['name', 'id', 'address', 'phone', 'employeeId'];
+const memoize = (fn) => {
+  let cache = {};
+  return (...args) => {
+    //console.log("args[0] : ", Object.keys(args[0]))
+    let val = Object.keys(args[0]);
+    if(val in cache){
+      console.log("Fetching from cache : ", val);
+      return cache;
+    }
+    //console.log("Assigning to cache : ", val)
+    if(template.includes(val[0])){
+      cache[val] = args[0][Object.keys(args[0])]; 
+      return fn(cache);
+    }
+    return fn(cache);
+  }
+}
+const reminisce = memoize((value) => {
+  //console.log("value : ", value)
+  return Object.keys(value).length == template.length ? value : undefined; 
+});
+console.log(reminisce({'name': "manu"}));
+console.log(reminisce({'id': "1111"}));
+console.log(reminisce({'ooo': "1111"}));
+console.log(reminisce({'address': "manu nivas"}));
+console.log(reminisce({'phone': "9876543210"}));
+console.log(reminisce({'employeeId': "101"}));
+console.log(reminisce({'name': "anu"}));
+console.log(reminisce({'pp': "anu"}));
