@@ -1,9 +1,10 @@
 const template = ['name', 'id', 'address', 'phone', 'employeeId'];
 const reminisce = ((args) => {
-  
- 	//console.log("qqqqqqqq", Object.keys(reminisce.cache).length)
-  //if(Object.keys(args)[0] in reminisce.cache)
+  //console.log("qqqqqqqq", Object.keys(reminisce.cache).length)
+  //if(Object.keys(args)[0] in reminisce.cache){
   //  console.log("Fetching from cache ")
+  //	return Object.keys(reminisce.cache).length === template.length ? reminisce.cache : undefined;
+  //}
     
   if(template.includes(Object.keys(args)[0])){
 		reminisce.cache[Object.keys(args)[0]] = Object.values(args)[0] 
@@ -20,3 +21,4 @@ console.log(reminisce({'address': "manu nivas"}));
 console.log(reminisce({'phone': "9876543210"}));
 console.log(reminisce({'employeeId': "101"}));
 console.log(reminisce({'pp': "anu"}));
+console.log(reminisce({'name': "kekeke"}));
