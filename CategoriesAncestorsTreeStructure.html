@@ -1,0 +1,29 @@
+//Use recurssion to generate tree structure.
+const categories =[
+  { id: 'E-commerce', parent: null },
+  { id: 'Electronics', parent: 'E-commerce' },
+  { id: 'Mobiles', parent: 'Electronics' },
+  { id: 'Laptops', parent: 'Electronics' },
+  { id: 'Camera', parent: 'Electronics' },
+  { id: 'Lifestyle', parent: 'E-commerce' },
+  { id: 'Clothing', parent: 'Lifestyle' },
+  { id: 'Footware', parent: 'Lifestyle' },
+  { id: 'Grooming', parent: 'Lifestyle' },
+  { id: 'Jewellery', parent: 'Lifestyle' },
+]
+
+{
+  "E-commerce": {
+    "Electronics": {
+      "Mobiles": {},
+      "Laptops": {},
+      "Camera": {}
+    },
+    "Lifestyle": {
+      "Clothing": {},
+      "Footware": {},
+      "Grooming": {},
+      "Jewellery": {}
+    }
+  }
+}

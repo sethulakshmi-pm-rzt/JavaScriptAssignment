@@ -1,0 +1,6 @@
+Vinoj, Licence for webstorm, 1000, 2
+Vinoj, Food and expences, 500, 1
+Vinoj, Notebook, 20, 5
+Nanha, Licence for UX PIN, 2000, 4
+Nanha, Travel expences, 250, 1
+Nanha, Food and expences, 400, 2

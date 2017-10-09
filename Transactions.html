@@ -1,0 +1,29 @@
+//q1. get all descriptions from the array.
+//q2. filter all the transactions of type credit made on 31-jan-2017
+
+const transactions = [
+  { desc: 'ATM near Banashankari 2nd stage', amount: 1000, type: 'cr', date: '31-jan-2017' },
+  { desc: 'IMPS transfer to xyz', amount: 2000, type: 'dr', date: '31-jan-2017' },
+  { desc: 'Payment made at X-Restaurant', amount: 2500, type: 'dr', date: '30-jan-2017' },
+  { desc: 'ATM near Banashankari 2nd stage', amount: 2000, type: 'cr', date: '31-jan-2017' },
+  { desc: 'Payment made at Movies', amount: 1400, type: 'dr', date: '31-jan-2017' },
+  { desc: 'Payment made at X-Restaurant', amount: 1600, type: 'dr', date: '23-jan-2017' },
+  { desc: 'ATM near Banashankari 2nd stage', amount: 1200, type: 'cr', date: '30-jan-2017' },
+  { desc: 'IMPS transfer', amount: 3000, type: 'dr', date: '30-jan-2017' },
+  { desc: 'ATM near Banashankari 2nd stage', amount: 6000, type: 'cr', date: '28-jan-2017' },
+]
+
+const getDescription = (arr) => {
+  console.log("Get all descriptions from the array : ")
+  const description = arr.map((item) => item.desc);
+  return description;
+}
+const filterTransactions = (arr) => {
+  console.log("\nFilter all the transactions of the type credit made on 31-jan-2017")
+  const filteredData = arr.filter((element) => {
+    return ((element.type == "cr") && (element.date == "31-jan-2017"))
+  })
+  return filteredData;
+}
+console.log(getDescription(transactions))
+console.log(filterTransactions(transactions))
