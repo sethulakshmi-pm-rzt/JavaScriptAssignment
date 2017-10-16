@@ -2,8 +2,8 @@ const categories = [
   { id: 'E-commerce', parent: null },
   { id: 'Electronics', parent: 'E-commerce' },
   { id: 'Mobiles', parent: 'Electronics' },
-  { id: 'zzzzz', parent: 'Mobiles' },
-  { id: 'zzzzzzzzzz', parent: 'Mobiles' },
+  //{ id: 'zzzzz', parent: 'Mobiles' },
+  //{ id: 'zzzzzzzzzz', parent: 'Mobiles' },
   { id: 'Laptops', parent: 'Electronics' },
   { id: 'Camera', parent: 'Electronics' },
   { id: 'Lifestyle', parent: 'E-commerce' },
@@ -12,7 +12,6 @@ const categories = [
   { id: 'Grooming', parent: 'Lifestyle' },
   { id: 'Jewellery', parent: 'Lifestyle' },
 ]
-
 const createObject = ((data, parentId) => {
 	//first time parentId will be undefined
   let childObj = data.filter((line) => line.parent == parentId);
